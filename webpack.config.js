@@ -31,9 +31,10 @@ module.exports = {
         test: /\.html$/,
         exclude: /node_modules/,
         use: {
-          loader: 'html-minify-loader',
+          loader: 'html-layout-loader',
           options: { // 属性校验
-            comments: true
+            layout: path.resolve(__dirname, 'template/index.html'),
+            reg: /\{\{content\}\}/
           }
         }
       }
@@ -41,8 +42,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html', // 会调用require('./index.html')
-      filename: 'index.html'
+      template: './template/login.html',
+      filename: 'login.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './template/home.html',
+      filename: 'home.html'
     })
   ]
 }

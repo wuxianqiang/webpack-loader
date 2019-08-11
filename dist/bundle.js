@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/avatar.png":
+/*!************************!*\
+  !*** ./src/avatar.png ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "78fef5a3.png"
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -96,11 +107,13 @@
 "use strict";
 
 
-var fn = function fn() {
-  console.log('fn');
-};
+var _avatar = _interopRequireDefault(__webpack_require__(/*! ./avatar.png */ "./src/avatar.png"));
 
-fn();
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var img = document.createElement('img');
+img.src = _avatar["default"];
+document.body.appendChild(img);
 
 /***/ })
 

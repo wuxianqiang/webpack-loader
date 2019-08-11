@@ -25,3 +25,4 @@ img.src = url;
 document.appendChild(img)
 ```
 2. url-loader 主要是转换base64的
+图片太小会变成base64

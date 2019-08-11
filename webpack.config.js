@@ -42,7 +42,10 @@ module.exports = {
         test: /\.(png|jpg)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'file-loader'
+          loader: 'url-loader',
+          options: {
+            limit: 300*1000*1024
+          }
         }
       }
     ]

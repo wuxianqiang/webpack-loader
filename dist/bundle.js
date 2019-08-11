@@ -94,8 +94,15 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar fn = function fn() {\n  console.log('fn');\n};\n\nfn();\n\n//# sourceURL=webpack:///./src/index.js?");
+
+
+var fn = function fn() {
+  console.log('fn');
+};
+
+fn();
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=bundle.js.map

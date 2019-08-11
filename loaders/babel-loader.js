@@ -1,5 +1,9 @@
 let loaderUtils = require('loader-utils')
 let babel = require('@babel/core')
+// 1. 获取用户的参数
+// 2. 校验用户的参数
+
+
 // 这个包提供一些方法方便我们操作
 function loader (source) {
   let cb = this.async(); // 调用此方法loader会变成一般loader

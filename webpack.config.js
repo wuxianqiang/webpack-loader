@@ -1,4 +1,5 @@
-const path = require('path')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -18,13 +19,30 @@ module.exports = {
     rules: [
       {
         exclude: /node_modules/,
+        test: /\.js$/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env']
           }
         }
+      },
+      {
+        test: /\.html$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'html-minify-loader',
+          options: { // 属性校验
+            comments: true
+          }
+        }
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html', // 会调用require('./index.html')
+      filename: 'index.html'
+    })
+  ]
 }

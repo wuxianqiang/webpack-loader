@@ -2,7 +2,9 @@ const path = require('path');
 const DonePlugin = require('./plugins/DonePlugin')
 const AsyncPlugin = require('./plugins/AsyncPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FileListPlugin = require('./plugins/FileListPlugin')
+const FileListPlugin = require('./plugins/FileListPlugin');
+const MinCssExtractPlugin = require('mini-css-extract-plugin');
+const InlineSourcePlugin = require('./plugins/InlineSourcePlugin');
 
 module.exports = {
   mode: 'development',
@@ -18,6 +20,9 @@ module.exports = {
     }),
     new FileListPlugin({
       filename: 'list.md'
+    }),
+    new InlineSourcePlugin({
+      match: /\.(css|js)$/
     })
   ]
 }

@@ -47,6 +47,10 @@ module.exports = {
             limit: 300*1000*1024
           }
         }
+      },
+      {
+        test: /\.less$/,
+        use: ['style-loader', 'css-loader', 'less-loader']
       }
     ]
   },

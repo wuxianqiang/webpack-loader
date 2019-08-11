@@ -109,11 +109,28 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABIwAAAH9CAIAAAD3
 
 var _avatar = _interopRequireDefault(__webpack_require__(/*! ./avatar.png */ "./src/avatar.png"));
 
+__webpack_require__(/*! ./index.less */ "./src/index.less");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var img = document.createElement('img');
 img.src = _avatar["default"];
 document.body.appendChild(img);
+
+/***/ }),
+
+/***/ "./src/index.less":
+/*!************************!*\
+  !*** ./src/index.less ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+  let style = document.createElement('style');
+  style.innerHTML = "body {\n  background: red;\n}\n";
+  document.head.appendChild(style);
+  
 
 /***/ })
 

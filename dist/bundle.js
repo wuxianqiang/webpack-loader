@@ -86,6 +86,21 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./loaders/css-loader.js!./loaders/less-loader.js!./src/index.less":
+/*!*************************************************************************!*\
+  !*** ./loaders/css-loader.js!./loaders/less-loader.js!./src/index.less ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+let list = []
+list.push("body {\n  background: red;\n  background: ")
+list.push('url('+__webpack_require__(/*! ./avatar.png */ "./src/avatar.png")+')')
+list.push(";\n}\n")
+module.exports=list.join('')
+
+/***/ }),
+
 /***/ "./src/avatar.png":
 /*!************************!*\
   !*** ./src/avatar.png ***!
@@ -124,11 +139,11 @@ document.body.appendChild(img);
   !*** ./src/index.less ***!
   \************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 
   let style = document.createElement('style');
-  style.innerHTML = "body {\n  background: red;\n}\n";
+  style.innerHTML = __webpack_require__(/*! !../loaders/css-loader.js!../loaders/less-loader.js!./index.less */ "./loaders/css-loader.js!./loaders/less-loader.js!./src/index.less");
   document.head.appendChild(style);
   
 

@@ -26,3 +26,11 @@ document.appendChild(img)
 ```
 2. url-loader 主要是转换base64的
 图片太小会变成base64
+
+less-loader 编译为CSS
+
+css-loader 处理图片路径的问题
+background:url('./1.png') -> background:url(''+require('./1.png')+'')
+@import './a.css' -> require('./a.css')
+
+style-loader 创建标签插入CSS

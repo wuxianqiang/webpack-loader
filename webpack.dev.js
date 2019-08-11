@@ -1,6 +1,8 @@
 const path = require('path');
 const DonePlugin = require('./plugins/DonePlugin')
-const AsyncPlugin = require('./plugins/AsyncPlugin')
+const AsyncPlugin = require('./plugins/AsyncPlugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FileListPlugin = require('./plugins/FileListPlugin')
 
 module.exports = {
   mode: 'development',
@@ -10,7 +12,12 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    new DonePlugin(),
-    new AsyncPlugin()
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      filename: 'index.html'
+    }),
+    new FileListPlugin({
+      filename: 'list.md'
+    })
   ]
 }

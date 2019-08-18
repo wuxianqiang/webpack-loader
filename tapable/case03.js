@@ -38,3 +38,5 @@ hook.promise('张三').then(() => {
 
 // 异步并发的钩子
 // AsyncParralleBaiHook
+// 异步串行，
+// 异步并行

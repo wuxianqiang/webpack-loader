@@ -1,18 +1,30 @@
-// 异步串行
-// 异步并行
-// 异步有promise和回调
 
+// 同步的钩子
+class AsyncSeriesHook {
+  constructor(args) {
+    // args是标识作用的
+    this.tasks = [];
+  }
+  promise(...args) {
+    // redux源码
+    let [first, ...others] = this.tasks;
+    return others.reduce((p, n) => {
+      return p.then(() => n(...args))
+    }, first(...args))
+  }
+  tapPromise(name, task) {
+    // name是标识作用的
+    this.tasks.push(task)
+  }
+}
 
-let {AsyncParallelHook} = require('tapable')
-
-// 注册方法，分为tap注册，tapAsync 异步注册 cb 还有tapPromise注册的是promise
 class Lesson {
-  constructor () {
+  constructor() {
     this.hooks = {
-      arch: new AsyncParallelHook(['name'])
+      arch: new AsyncSeriesHook(['name'])
     }
   }
-  tap () {
+  tap() {
     this.hooks.arch.tapPromise('node', function (name, cb) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -30,7 +42,7 @@ class Lesson {
       })
     });
   }
-  start () {
+  start() {
     // 所有的cb都调用完成才会执行这个最后的回调
     this.hooks.arch.promise('张三').then(() => {
       console.log('学习完成')

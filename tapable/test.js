@@ -10,10 +10,10 @@ class Lesson {
   }
   tap () {
     this.hooks.arch.tap('node', function (name) {
-      console.log('node')
+      console.log(`${name}学习node课程`)
     });
     this.hooks.arch.tap('react', function (name) {
-      console.log('react')
+      console.log(`${name}学习react课程`)
     });
   }
   start () {
@@ -21,6 +21,7 @@ class Lesson {
   }
 }
 
-let l = new Lesson();
-l.tap();
-l.start();
+let lesson = new Lesson();
+lesson.tap();
+lesson.start();
+console.log('学习完成')

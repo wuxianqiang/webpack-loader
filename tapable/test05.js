@@ -1,15 +1,10 @@
-// 异步串行
-// 异步并行
-// 异步有promise和回调
-
-
-let {AsyncParallelHook} = require('tapable')
+let {AsyncSeriesHook} = require('tapable')
 
 // 注册方法，分为tap注册，tapAsync 异步注册 cb 还有tapPromise注册的是promise
 class Lesson {
   constructor () {
     this.hooks = {
-      arch: new AsyncParallelHook(['name'])
+      arch: new AsyncSeriesHook(['name'])
     }
   }
   tap () {
